@@ -1,151 +1,23 @@
-$color-gray: #777777
-$color-brown-light: #BA8554
-$color-brown-dark: #A14F03
-$color-black: #000000
-$color-white: #FAFAFA
-$box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.3))
+@import "abstracts/variable.sass"
+@import "abstracts/mixins.sass"
+@import "abstracts/funtions.sass"
 
-@mixin style-link($color)
-    text-transform: uppercase
-    text-decoration: none
-    display: inline-block
-    color: $color
+@import "base/animation.sass"
+@import "base/base.sass"
+@import "base/typography.sass"
+@import "base/utilities.sass"
 
+@import "components/button.sass"
+
+@import "layout/header.sass"
+@import "pages/home.sass"
     
 
-*, ::after, ::before
-    margin: 0
-    padding: 0
-    box-sizing: border-box
-html
-    font-size: 62.5%
 
 
-body
-    font-family: "Roboto",sans-serif
-    font-weight: 400
-    color: $color-gray
-    font-size: 1.6rem
-    letter-spacing: .2rem
-    padding: 5rem
-    background-color: $color-white
 
-.container
-    background-color: #F7F7F7
-    
-.header
-    position: relative
-    height: 95vh
-    background: linear-gradient(90deg, rgba($color-brown-light, 0.7) 0.03%, rgba($color-black, 0.7) 99.94%), url(../img/header-background.jpg) center / cover no-repeat
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
-    &__logo
-        position: absolute
-        left: 5rem
-        top: 5rem
-        height: 7rem
-        width: 5.6rem
-    &__box
-        position: absolute
-        top: 40%
-        left: 50%     
-        transform: translate(-50%, -50%)
-        width: 100%   
-        text-align: center
-.title-first
-    color: #FFFFFF
-    
-    &__main
-        display: block
-        font-weight: 800
-        font-size: 5rem
-        line-height: 6rem
-        letter-spacing: 1rem
-        text-transform: uppercase
-        margin-bottom: 1rem
-        animation-name: leftToRight
-        animation-duration: 2s
-        animation-delay: 1s
-        animation-timing-function: ease
-        backface-visibility: hidden
-        animation-fill-mode: backwards
-        
-    &__secondary
-        display: block
-        font-weight: 100
-        font-size: 4rem
-        line-height: 4.8rem
-        letter-spacing: .5rem
-        animation-name: rightToLeft
-        animation-duration: 2s
-        animation-delay: 1s
-        animation-timing-function: ease
-        backface-visibility: hidden
-        margin-bottom: 6.5rem
-        animation-fill-mode: backwards
+
         
         
-.btn
-    &:link, &:visited
-        @include style-link($color-gray)
-        padding: 1.5rem 4rem
-        background: white
-        border-radius: 5rem
-        
-        transition: all .5s
-        position: relative
-        font-size: 2rem
-        
-    &:hover
-        transform: translateY(-0.4rem)
-        box-shadow: $box-shadow
-        &::after
-            transform: scaleX(1.5) scaleY(1.7)
-            opacity: 0
-    &:active
-        transform: translateY(-0.2rem)
-        box-shadow: $box-shadow
-    &::after
-        content: ""
-        background: $color-white
-        width: 100%
-        height: 100%
-        border-radius: 5rem
-        display: inline-block
-        position: absolute
-        top: 0
-        left: 0
-        z-index: -1
-        transition: all .3s
-    &_animated
-        animation: BtnToTop .5s ease-out .7s
-        animation-fill-mode: backwards
 
-@keyframes leftToRight
-    0%
-        opacity: 0
-        transform: translate(-10rem)
-    80%
-        transform: translate(1rem)
-    100%
-        opacity: 1
-        transform: translate(0px)
 
-@keyframes rightToLeft
-    0%
-        opacity: 0
-        transform: translate(10rem)
-    80%
-        transform: translate(-1rem)
-    100%
-        opacity: 1
-        transform: translate(0px)
-
-@keyframes BtnToTop
-    0%
-        opacity: 0
-        transform: translateY(5rem)
-    80%
-        transform: translateY(-1rem)
-    100%
-        opacity: 1
-        transform: translateY(0px)
